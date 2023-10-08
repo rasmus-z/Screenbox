@@ -272,7 +272,7 @@
                 <interactivity:Interaction.Behaviors>
                     <interactions:ListViewContextTriggerBehavior Flyout="{x:Bind ItemFlyout}" />
                     <interactions:BringIntoViewWithOffsetBehavior FromBottom="{x:Bind Common.FooterBottomPaddingHeight, Mode=OneWay}" />
-                    <interactions:ListViewDoubleTappedBehavior Command="{x:Bind ViewModel.DoubleClicked}" />
+                    <interactions:ListViewDoubleTappedBehavior Command="{x:Bind ViewModel.DoubleClickedCommand}" />
                 </interactivity:Interaction.Behaviors>
             </GridView>
         </Grid>
