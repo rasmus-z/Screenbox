@@ -4,14 +4,18 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using Screenbox.Core.Enums;
+using Screenbox.Core.Helpers;
 using Screenbox.Core.Messages;
 using Screenbox.Core.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
+using Windows.Foundation;
 using Windows.Storage;
+using Windows.UI.Xaml.Controls;
 
 namespace Screenbox.Core.ViewModels
 {
@@ -23,6 +27,12 @@ namespace Screenbox.Core.ViewModels
         [ObservableProperty] private bool _enableMultiSelect;
         [ObservableProperty] private object? _selectedItem;
 
+
+        [ObservableProperty]
+        private bool _shouldScrollActiveItemIntoView;
+
+        public event TypedEventHandler<PlaylistViewModel, object> ScrollActiveItemIntoView;
+
         [ObservableProperty]
         [NotifyCanExecuteChangedFor(nameof(PlayNextCommand))]
         [NotifyCanExecuteChangedFor(nameof(RemoveSelectedCommand))]
@@ -32,15 +42,46 @@ namespace Screenbox.Core.ViewModels
 
         private readonly IFilesService _filesService;
         private readonly IResourceService _resourceService;
+        private readonly LibVlcService _libVlcService;
 
-        public PlaylistViewModel(MediaListViewModel playlist, IFilesService filesService, IResourceService resourceService)
+        public PlaylistViewModel(MediaListViewModel playlist, IFilesService filesService, IResourceService resourceService, LibVlcService libVlcService)
         {
             Playlist = playlist;
             _filesService = filesService;
             _resourceService = resourceService;
             _hasItems = playlist.Items.Count > 0;
             Playlist.Items.CollectionChanged += ItemsOnCollectionChanged;
+
+
+            _libVlcService = libVlcService;
+            if (_libVlcService.MediaPlayer == null)
+            {
+                //CancellationToken token
+                Task.Run(() =>
+                {
+                    while (_libVlcService.MediaPlayer == null)
+                    { Task.Delay(173); }
+
+                    _libVlcService.MediaPlayer.PlaybackItemChanged += MediaPlayer_PlaybackItemChanged;
+                });
+            }
+            else
+            {
+                _libVlcService.MediaPlayer.PlaybackItemChanged += MediaPlayer_PlaybackItemChanged;
+            }
+
+            //this.PropertyChanged += PlaylistViewModel_PropertyChanged;
         }
+
+        private void MediaPlayer_PlaybackItemChanged(Playback.IMediaPlayer sender, Events.ValueChangedEventArgs<Playback.PlaybackItem?> args)
+        {
+            if (!ShouldScrollActiveItemIntoView)
+            {
+                ShouldScrollActiveItemIntoView = true;
+                ScrollActiveItemIntoView?.Invoke(this, EventArgs.Empty);
+            }
+        }
+
 
         public void EnqueuePlaylist(IReadOnlyList<IStorageItem> items)
         {

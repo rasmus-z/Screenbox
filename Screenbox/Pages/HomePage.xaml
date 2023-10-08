@@ -14,6 +14,7 @@
     xmlns:strings="using:Screenbox.Strings"
     xmlns:triggers="using:Microsoft.Toolkit.Uwp.UI.Triggers"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
+    xmlns:ext="using:Screenbox.Extensions"
     Loaded="{x:Bind ViewModel.OnLoaded}"
     mc:Ignorable="d">
     <Page.Resources>
@@ -259,7 +260,7 @@
                 Grid.Row="1"
                 Margin="0,16,0,0"
                 Padding="{StaticResource ContentPageThumbnailRightMargin}"
-                ui:ListViewExtensions.Command="{x:Bind ViewModel.PlayCommand}"
+                ui:ListViewExtensions.Command="{x:Bind ViewModel.ClickedCommand}"
                 ui:ScrollViewerExtensions.VerticalScrollBarMargin="{x:Bind Common.ScrollBarMargin, Mode=OneWay}"
                 IsItemClickEnabled="True"
                 ItemTemplate="{StaticResource StorageItemGridViewTemplate}"
@@ -271,6 +272,7 @@
                 <interactivity:Interaction.Behaviors>
                     <interactions:ListViewContextTriggerBehavior Flyout="{x:Bind ItemFlyout}" />
                     <interactions:BringIntoViewWithOffsetBehavior FromBottom="{x:Bind Common.FooterBottomPaddingHeight, Mode=OneWay}" />
+                    <interactions:ListViewDoubleTappedBehavior Command="{x:Bind ViewModel.DoubleClicked}" />
                 </interactivity:Interaction.Behaviors>
             </GridView>
         </Grid>

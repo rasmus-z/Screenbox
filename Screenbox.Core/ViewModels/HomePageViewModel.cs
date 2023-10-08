@@ -199,6 +199,19 @@ namespace Screenbox.Core.ViewModels
         }
 
         [RelayCommand]
+        private void Clicked(MediaViewModelWithMruToken media)
+        {
+            // Ethel Todo: Add Settings for Clicked & DoubleClicked default behavior
+        }
+        [RelayCommand]
+        private void DoubleClicked(MediaViewModelWithMruToken media)
+        {
+            // Ethel Todo: Add Settings for Clicked & DoubleClicked default behavior
+
+            Messenger.SendPlayNext(media.Media);
+        }
+
+        [RelayCommand]
         private void Play(MediaViewModelWithMruToken media)
         {
             Messenger.Send(new PlayMediaMessage(media.Media));

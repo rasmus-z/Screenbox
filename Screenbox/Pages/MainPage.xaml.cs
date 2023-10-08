@@ -23,6 +23,8 @@ namespace Screenbox.Pages
 {
     public sealed partial class MainPage : Page, IContentFrame
     {
+        public static DispatcherQueue? DispatcherQueue { get; private set; }
+
         public Type ContentSourcePageType => ContentFrame.SourcePageType;
 
         public object? FrameContent => ContentFrame.Content;
@@ -54,6 +56,8 @@ namespace Screenbox.Pages
 
             DataContext = Ioc.Default.GetRequiredService<MainPageViewModel>();
             ViewModel.PropertyChanged += ViewModel_PropertyChanged;
+
+            RootSplitView.PaneOpening += delegate { PlayQueueFrame.Navigate(typeof(PlayQueuePage), null, new SuppressNavigationTransitionInfo()); };
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -96,6 +100,8 @@ namespace Screenbox.Pages
 
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
+            DispatcherQueue = DispatcherQueue.GetForCurrentThread();
+
             Window.Current.Dispatcher.AcceleratorKeyActivated += CoreDispatcher_AcceleratorKeyActivated;
             SystemNavigationManager.GetForCurrentView().BackRequested += System_BackRequested;
             Window.Current.CoreWindow.PointerPressed += CoreWindow_PointerPressed;
@@ -245,6 +251,8 @@ namespace Screenbox.Pages
 
                 NavView.SelectedItem = selectedItem;
             }
+
+            RootSplitView.IsPaneOpen = !(ContentFrame.SourcePageType == typeof(SettingsPage));
         }
 
         private muxc.NavigationViewItem? GetNavigationItemForPageType(Type pageType)

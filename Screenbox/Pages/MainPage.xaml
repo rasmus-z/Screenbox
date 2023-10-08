@@ -9,6 +9,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:toolkitCore="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:strings="using:Screenbox.Strings"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True"
     Loaded="MainPage_Loaded"
@@ -150,12 +151,49 @@
             </controls:CustomNavigationView.OverlayContent>
 
             <Grid x:Name="ContentGrid">
-                <Frame
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <SplitView x:Name="RootSplitView"
+                   Grid.Row="0"
+                   AllowDrop="True" 
+                   IsPaneOpen="False"
+                   OpenPaneLength="415"
+                   DisplayMode="Inline"
+                   PaneBackground="Transparent"
+                   PanePlacement="Right">
+
+                    <SplitView.Content>
+                        <Frame
                     x:Name="ContentFrame"
                     Padding="56,0,0,0"
                     Navigated="ContentFrame_Navigated"
                     NavigationFailed="ContentFrame_NavigationFailed" />
 
+                    </SplitView.Content>
+                    <SplitView.Pane>
+                        <Border x:Name="RootBorder" Padding="12,0,0,0" >
+                            <Grid>
+                                <toolkitCore:DropShadowPanel BlurRadius="12"
+                                                  Color="Black"
+                                                  Opacity="0.3"
+                                                  HorizontalContentAlignment="Stretch"
+                                                  VerticalContentAlignment="Stretch">
+                                    <Rectangle Fill="White" />
+                                </toolkitCore:DropShadowPanel>
+
+                                <Grid x:Name="PaneContentGrid" Background="{ThemeResource SystemControlChromeMediumLowAcrylicElementMediumBrush}">
+                                    <Frame  Padding="12,0,0,61" x:Name="PlayQueueFrame"/>
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </SplitView.Pane>
+                </SplitView>
+                
                 <controls:NotificationView
                     x:Name="NotificationView"
                     MaxWidth="400"

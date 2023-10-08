@@ -10,6 +10,12 @@ using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using CommunityToolkit.Mvvm.DependencyInjection;
+using Microsoft.Toolkit.Uwp.Helpers;
+using Screenbox.Pages;
+using Windows.System;
+using Microsoft.Toolkit.Uwp;
+using Microsoft.Toolkit;
+using ReswPlusLib;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -17,6 +23,8 @@ namespace Screenbox.Controls
 {
     public sealed partial class PlaylistView : UserControl
     {
+        private DispatcherQueue? dispatcherQueue;
+
         public static readonly DependencyProperty IsFlyoutProperty = DependencyProperty.Register(
             "IsFlyout",
             typeof(bool),
@@ -38,12 +46,24 @@ namespace Screenbox.Controls
             this.InitializeComponent();
             DataContext = Ioc.Default.GetRequiredService<PlaylistViewModel>();
             Common = Ioc.Default.GetRequiredService<CommonViewModel>();
+
+            ViewModel.ScrollActiveItemIntoView += ViewModel_ScrollingActiveItemIntoView;
+        }
+
+        private void ViewModel_ScrollingActiveItemIntoView(PlaylistViewModel sender, object args)
+        {
+            Task.Run(async () =>
+            {
+                await dispatcherQueue.EnqueueAsync(async () => await SmoothScrollActiveItemIntoViewAsync());
+            });
         }
 
         public async Task SmoothScrollActiveItemIntoViewAsync()
         {
             if (ViewModel.Playlist.CurrentItem == null || !ViewModel.HasItems) return;
             await PlaylistListView.SmoothScrollIntoViewWithItemAsync(ViewModel.Playlist.CurrentItem, ScrollItemPlacement.Center);
+
+            ViewModel.ShouldScrollActiveItemIntoView = false;
         }
 
         private void SelectionCheckBox_OnClick(object sender, RoutedEventArgs e)
@@ -120,6 +140,8 @@ namespace Screenbox.Controls
 
         private void PlaylistView_OnLoaded(object sender, RoutedEventArgs e)
         {
+            dispatcherQueue = MainPage.DispatcherQueue;
+
             UpdateLayoutState();
             GoToCurrentItem();
         }

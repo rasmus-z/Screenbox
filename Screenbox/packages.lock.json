@@ -46,7 +46,7 @@
         "type": "Direct",
         "requested": "[6.2.14, )",
         "resolved": "6.2.14",
-        "contentHash": "20T91+/vQhL8c//GFU9qkNnys2BVdzAr9smULuP4p9csXwYjuoqxwAjNxLH0FvApGdB3s0sGhHkSeLg3IQBdMw==",
+        "contentHash": "7Mi4cS8JQ7gqm+W+SRCq13c2Rr0yZTuczC9EbV6gRigE2ZhQalnLHyat0ZshT5HDMSkFDxTyjwZymUgFuv3+eg==",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.1.0",
           "Microsoft.Net.Native.Compiler": "2.2.12-rel-31116-00",
@@ -82,6 +82,17 @@
           "Microsoft.Toolkit.Uwp.UI": "7.1.3",
           "Microsoft.Toolkit.Uwp.UI.Animations": "7.1.3",
           "Microsoft.Xaml.Behaviors.Uwp.Managed": "2.0.1"
+        }
+      },
+      "Microsoft.Toolkit.Uwp.UI.Controls.Core": {
+        "type": "Direct",
+        "requested": "[7.1.3, )",
+        "resolved": "7.1.3",
+        "contentHash": "Tk8zJgjx2OmB8LB3NXq4vFa9n1cei0EZww3Y83aqhmQvlussYpkB49M/Lr2qF1GRGDikaA6lOSR2k381GV41ow==",
+        "dependencies": {
+          "Microsoft.Toolkit.Uwp": "7.1.3",
+          "Microsoft.Toolkit.Uwp.UI.Controls.Primitives": "7.1.3",
+          "Microsoft.UI.Xaml": "2.7.0"
         }
       },
       "Microsoft.Toolkit.Uwp.UI.Controls.Primitives": {
@@ -194,7 +205,7 @@
       "Microsoft.Net.UWPCoreRuntimeSdk": {
         "type": "Transitive",
         "resolved": "2.2.14",
-        "contentHash": "qPR/lie8X3I82ZnZbdqyl27Z/J9mJapSEbnz7CX4kGgc5LNwjoLlUnaQjilDQsTcYfmSg8EcvcLJy9mBSY+GVA==",
+        "contentHash": "THMsLyB29wqd9ZI9c05hoMb788QQ5ClsXwLjpt7omTk/OvtUERWgwD6q85s5aSMdze50uhPZDRF/+uju8Lqhgw==",
         "dependencies": {
           "runtime.win10-arm.Microsoft.Net.UWPCoreRuntimeSdk": "2.2.14",
           "runtime.win10-x64.Microsoft.Net.UWPCoreRuntimeSdk": "2.2.14",
@@ -204,7 +215,7 @@
       "Microsoft.NETCore.Platforms": {
         "type": "Transitive",
         "resolved": "2.1.0",
-        "contentHash": "GmkKfoyerqmsHMn7OZj0AKpcBabD+GaafqphvX2Mw406IwiJRy1pKcKqdCfKJfYmkRyJ6+e+RaUylgdJoDa1jQ=="
+        "contentHash": "ok+RPAtESz/9MUXeIEz6Lv5XAGQsaNmEYXMsgVALj4D7kqC8gveKWXWXbufLySR2fWrwZf8smyN5RmHu0e4BHA=="
       },
       "Microsoft.Toolkit": {
         "type": "Transitive",
@@ -227,7 +238,7 @@
       "NETStandard.Library": {
         "type": "Transitive",
         "resolved": "2.0.3",
-        "contentHash": "548M6mnBSJWxsIlkQHfbzoYxpiYFXZZSL00p4GHYv8PkiqFBnnT68mW5mGEsA/ch9fDO9GkPgkFQpWiXZN7mAQ==",
+        "contentHash": "st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0"
         }
@@ -473,7 +484,7 @@
         "type": "Direct",
         "requested": "[6.2.14, )",
         "resolved": "6.2.14",
-        "contentHash": "20T91+/vQhL8c//GFU9qkNnys2BVdzAr9smULuP4p9csXwYjuoqxwAjNxLH0FvApGdB3s0sGhHkSeLg3IQBdMw==",
+        "contentHash": "7Mi4cS8JQ7gqm+W+SRCq13c2Rr0yZTuczC9EbV6gRigE2ZhQalnLHyat0ZshT5HDMSkFDxTyjwZymUgFuv3+eg==",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.1.0",
           "Microsoft.Net.Native.Compiler": "2.2.12-rel-31116-00",
@@ -524,7 +535,7 @@
         "type": "Direct",
         "requested": "[6.2.14, )",
         "resolved": "6.2.14",
-        "contentHash": "20T91+/vQhL8c//GFU9qkNnys2BVdzAr9smULuP4p9csXwYjuoqxwAjNxLH0FvApGdB3s0sGhHkSeLg3IQBdMw==",
+        "contentHash": "7Mi4cS8JQ7gqm+W+SRCq13c2Rr0yZTuczC9EbV6gRigE2ZhQalnLHyat0ZshT5HDMSkFDxTyjwZymUgFuv3+eg==",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.1.0",
           "Microsoft.Net.Native.Compiler": "2.2.12-rel-31116-00",
@@ -575,7 +586,7 @@
         "type": "Direct",
         "requested": "[6.2.14, )",
         "resolved": "6.2.14",
-        "contentHash": "20T91+/vQhL8c//GFU9qkNnys2BVdzAr9smULuP4p9csXwYjuoqxwAjNxLH0FvApGdB3s0sGhHkSeLg3IQBdMw==",
+        "contentHash": "7Mi4cS8JQ7gqm+W+SRCq13c2Rr0yZTuczC9EbV6gRigE2ZhQalnLHyat0ZshT5HDMSkFDxTyjwZymUgFuv3+eg==",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.1.0",
           "Microsoft.Net.Native.Compiler": "2.2.12-rel-31116-00",
@@ -626,7 +637,7 @@
         "type": "Direct",
         "requested": "[6.2.14, )",
         "resolved": "6.2.14",
-        "contentHash": "20T91+/vQhL8c//GFU9qkNnys2BVdzAr9smULuP4p9csXwYjuoqxwAjNxLH0FvApGdB3s0sGhHkSeLg3IQBdMw==",
+        "contentHash": "7Mi4cS8JQ7gqm+W+SRCq13c2Rr0yZTuczC9EbV6gRigE2ZhQalnLHyat0ZshT5HDMSkFDxTyjwZymUgFuv3+eg==",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.1.0",
           "Microsoft.Net.Native.Compiler": "2.2.12-rel-31116-00",
@@ -643,7 +654,7 @@
       "runtime.win10-x64.Microsoft.NETCore.UniversalWindowsPlatform": {
         "type": "Transitive",
         "resolved": "6.2.14",
-        "contentHash": "snth4i/ok+LqSSqK5tLVFSbe8RDzIvfJabMXMPoYI+NQCi91mR+7tsTHk3gNEojuZT0i4g1EaFrIwqaW9bmEYA=="
+        "contentHash": "SPmQotZQ5ty+UkHMm76k/0DJpZ663qwXvLjVw/LrNmaIQHa+g+6TjKNAyR0ondKnwqu5oT79RJ2Tk8A0JQqBPQ=="
       },
       "SQLitePCLRaw.lib.e_sqlite3": {
         "type": "Transitive",
@@ -677,7 +688,7 @@
         "type": "Direct",
         "requested": "[6.2.14, )",
         "resolved": "6.2.14",
-        "contentHash": "20T91+/vQhL8c//GFU9qkNnys2BVdzAr9smULuP4p9csXwYjuoqxwAjNxLH0FvApGdB3s0sGhHkSeLg3IQBdMw==",
+        "contentHash": "7Mi4cS8JQ7gqm+W+SRCq13c2Rr0yZTuczC9EbV6gRigE2ZhQalnLHyat0ZshT5HDMSkFDxTyjwZymUgFuv3+eg==",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.1.0",
           "Microsoft.Net.Native.Compiler": "2.2.12-rel-31116-00",
@@ -728,7 +739,7 @@
         "type": "Direct",
         "requested": "[6.2.14, )",
         "resolved": "6.2.14",
-        "contentHash": "20T91+/vQhL8c//GFU9qkNnys2BVdzAr9smULuP4p9csXwYjuoqxwAjNxLH0FvApGdB3s0sGhHkSeLg3IQBdMw==",
+        "contentHash": "7Mi4cS8JQ7gqm+W+SRCq13c2Rr0yZTuczC9EbV6gRigE2ZhQalnLHyat0ZshT5HDMSkFDxTyjwZymUgFuv3+eg==",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.1.0",
           "Microsoft.Net.Native.Compiler": "2.2.12-rel-31116-00",
@@ -745,7 +756,7 @@
       "runtime.win10-x86.Microsoft.NETCore.UniversalWindowsPlatform": {
         "type": "Transitive",
         "resolved": "6.2.14",
-        "contentHash": "GaJmbZkhVAMCNvDSshqXzpTxWPKhENV+Q6A/Z7/lYeywczdCSlExJo+1aJ8/eh9bwKhxRvIj3OZH4JsQsYpRaA=="
+        "contentHash": "twbdvWFcy0wRd/jiZWeiS6Edui76XwmRLHXLJ3uFpBsimu7XOTLJBMycG11MxdcAjFMa3LnPUkTgiI63wM1b+w=="
       },
       "SQLitePCLRaw.lib.e_sqlite3": {
         "type": "Transitive",
@@ -779,7 +790,7 @@
         "type": "Direct",
         "requested": "[6.2.14, )",
         "resolved": "6.2.14",
-        "contentHash": "20T91+/vQhL8c//GFU9qkNnys2BVdzAr9smULuP4p9csXwYjuoqxwAjNxLH0FvApGdB3s0sGhHkSeLg3IQBdMw==",
+        "contentHash": "7Mi4cS8JQ7gqm+W+SRCq13c2Rr0yZTuczC9EbV6gRigE2ZhQalnLHyat0ZshT5HDMSkFDxTyjwZymUgFuv3+eg==",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.1.0",
           "Microsoft.Net.Native.Compiler": "2.2.12-rel-31116-00",
