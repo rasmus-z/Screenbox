@@ -832,6 +832,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\Styles\Ethel\CustomSplitViewStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\Templates\AlbumGridViewItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1029,6 +1033,10 @@
     <ProjectReference Include="..\Background\Background.csproj">
       <Project>{fd1e61b7-c73a-4aab-886d-4d0da27b143e}</Project>
       <Name>Background</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Screenbox.Controls\Screenbox.Controls.csproj">
+      <Project>{b60157db-f3d4-43d1-80c3-6e75b758a06a}</Project>
+      <Name>Screenbox.Controls</Name>
     </ProjectReference>
     <ProjectReference Include="..\Screenbox.Core\Screenbox.Core.csproj">
       <Project>{46d79c78-f483-4319-a3d1-9d837a135bef}</Project>

@@ -252,7 +252,7 @@ namespace Screenbox.Pages
                 NavView.SelectedItem = selectedItem;
             }
 
-            RootSplitView.IsPaneOpen = !(ContentFrame.SourcePageType == typeof(SettingsPage));
+            RootSplitView.IsPaneOpen = !(ContentFrame.SourcePageType == typeof(SettingsPage)) && !(ContentFrame.SourcePageType == typeof(PlayQueuePage));
         }
 
         private muxc.NavigationViewItem? GetNavigationItemForPageType(Type pageType)

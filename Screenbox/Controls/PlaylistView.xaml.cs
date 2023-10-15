@@ -23,7 +23,7 @@ namespace Screenbox.Controls
 {
     public sealed partial class PlaylistView : UserControl
     {
-        private DispatcherQueue? dispatcherQueue;
+        private readonly DispatcherQueue _dispatcherQueue;
 
         public static readonly DependencyProperty IsFlyoutProperty = DependencyProperty.Register(
             "IsFlyout",
@@ -47,6 +47,8 @@ namespace Screenbox.Controls
             DataContext = Ioc.Default.GetRequiredService<PlaylistViewModel>();
             Common = Ioc.Default.GetRequiredService<CommonViewModel>();
 
+            _dispatcherQueue = DispatcherQueue.GetForCurrentThread();
+
             ViewModel.ScrollActiveItemIntoView += ViewModel_ScrollingActiveItemIntoView;
         }
 
@@ -54,16 +56,16 @@ namespace Screenbox.Controls
         {
             Task.Run(async () =>
             {
-                await dispatcherQueue.EnqueueAsync(async () => await SmoothScrollActiveItemIntoViewAsync());
+                await _dispatcherQueue.EnqueueAsync(async () => await SmoothScrollActiveItemIntoViewAsync());
             });
         }
 
         public async Task SmoothScrollActiveItemIntoViewAsync()
         {
+            ViewModel.ShouldScrollActiveItemIntoView = false;
+
             if (ViewModel.Playlist.CurrentItem == null || !ViewModel.HasItems) return;
             await PlaylistListView.SmoothScrollIntoViewWithItemAsync(ViewModel.Playlist.CurrentItem, ScrollItemPlacement.Center);
-
-            ViewModel.ShouldScrollActiveItemIntoView = false;
         }
 
         private void SelectionCheckBox_OnClick(object sender, RoutedEventArgs e)
@@ -140,8 +142,6 @@ namespace Screenbox.Controls
 
         private void PlaylistView_OnLoaded(object sender, RoutedEventArgs e)
         {
-            dispatcherQueue = MainPage.DispatcherQueue;
-
             UpdateLayoutState();
             GoToCurrentItem();
         }

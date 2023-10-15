@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Screenbox.Core", "Screenbox
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Background", "Background\Background.csproj", "{FD1E61B7-C73A-4AAB-886D-4D0DA27B143E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Screenbox.Controls", "Screenbox.Controls\Screenbox.Controls.csproj", "{B60157DB-F3D4-43D1-80C3-6E75B758A06A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -104,12 +106,32 @@ Global
 		{FD1E61B7-C73A-4AAB-886D-4D0DA27B143E}.Release|x64.Build.0 = Release|x64
 		{FD1E61B7-C73A-4AAB-886D-4D0DA27B143E}.Release|x86.ActiveCfg = Release|x86
 		{FD1E61B7-C73A-4AAB-886D-4D0DA27B143E}.Release|x86.Build.0 = Release|x86
+		{B60157DB-F3D4-43D1-80C3-6E75B758A06A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B60157DB-F3D4-43D1-80C3-6E75B758A06A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B60157DB-F3D4-43D1-80C3-6E75B758A06A}.Debug|ARM.ActiveCfg = Debug|ARM
+		{B60157DB-F3D4-43D1-80C3-6E75B758A06A}.Debug|ARM.Build.0 = Debug|ARM
+		{B60157DB-F3D4-43D1-80C3-6E75B758A06A}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{B60157DB-F3D4-43D1-80C3-6E75B758A06A}.Debug|ARM64.Build.0 = Debug|ARM64
+		{B60157DB-F3D4-43D1-80C3-6E75B758A06A}.Debug|x64.ActiveCfg = Debug|x64
+		{B60157DB-F3D4-43D1-80C3-6E75B758A06A}.Debug|x64.Build.0 = Debug|x64
+		{B60157DB-F3D4-43D1-80C3-6E75B758A06A}.Debug|x86.ActiveCfg = Debug|x86
+		{B60157DB-F3D4-43D1-80C3-6E75B758A06A}.Debug|x86.Build.0 = Debug|x86
+		{B60157DB-F3D4-43D1-80C3-6E75B758A06A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B60157DB-F3D4-43D1-80C3-6E75B758A06A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B60157DB-F3D4-43D1-80C3-6E75B758A06A}.Release|ARM.ActiveCfg = Release|ARM
+		{B60157DB-F3D4-43D1-80C3-6E75B758A06A}.Release|ARM.Build.0 = Release|ARM
+		{B60157DB-F3D4-43D1-80C3-6E75B758A06A}.Release|ARM64.ActiveCfg = Release|ARM64
+		{B60157DB-F3D4-43D1-80C3-6E75B758A06A}.Release|ARM64.Build.0 = Release|ARM64
+		{B60157DB-F3D4-43D1-80C3-6E75B758A06A}.Release|x64.ActiveCfg = Release|x64
+		{B60157DB-F3D4-43D1-80C3-6E75B758A06A}.Release|x64.Build.0 = Release|x64
+		{B60157DB-F3D4-43D1-80C3-6E75B758A06A}.Release|x86.ActiveCfg = Release|x86
+		{B60157DB-F3D4-43D1-80C3-6E75B758A06A}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		RESX_EnableXlifSync = False
 		SolutionGuid = {A6A15B98-A3D8-4053-843B-10AFB810500C}
+		RESX_EnableXlifSync = False
 	EndGlobalSection
 EndGlobal
